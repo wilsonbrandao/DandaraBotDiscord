@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "KauhzFB/8GfCS++cpUIdg5lC5lXLVqTVYWisk6IoGB4wfETvtr7GElrCfDq54qoJwJ1X8ZvhgAWgTefZb957yw==",
+  "dgSpecHash": "ZofnKB8TnrHAaziXG4DVHyA/1nu/RGDVWAuQTkj54mOtd7/7Py1PQy/KPvlFhaNUfLQMZfSG6L1aC+DmRzwi8w==",
   "success": true,
   "projectFilePath": "C:\\dev\\botDiscord\\botDiscord.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,7 @@
     "C:\\Users\\wilso\\.nuget\\packages\\discord.net.webhook\\3.9.0\\discord.net.webhook.3.9.0.nupkg.sha512",
     "C:\\Users\\wilso\\.nuget\\packages\\discord.net.websocket\\3.9.0\\discord.net.websocket.3.9.0.nupkg.sha512",
     "C:\\Users\\wilso\\.nuget\\packages\\fluentresults\\3.15.2\\fluentresults.3.15.2.nupkg.sha512",
+    "C:\\Users\\wilso\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",
     "C:\\Users\\wilso\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\wilso\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\wilso\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
