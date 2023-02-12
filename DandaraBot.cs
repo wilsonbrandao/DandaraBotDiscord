@@ -33,13 +33,15 @@ public class DandaraBot
             LogLevel = LogSeverity.Info,
             CaseSensitiveCommands = true,
         }))
-        .AddSingleton<ClientHandler>();
+        .AddSingleton<ClientHandler>()
+        .AddSingleton<LoggingHandler>();
 
         return collectionContainer.BuildServiceProvider();
     }
 
     public async Task InitBotAsync()
     {
+        _serviceProvider.GetRequiredService<LoggingHandler>();
         await _serviceProvider.GetRequiredService<ClientHandler>().ConnectClientAsync();
         await _serviceProvider.GetRequiredService<CommandHandler>().initCommandAsync();
     }
