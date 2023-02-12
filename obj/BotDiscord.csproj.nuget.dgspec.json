@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\dev\\BotDiscord\\BotDiscord.csproj": {}
+    "C:\\dev\\botDiscord\\botDiscord.csproj": {}
   },
   "projects": {
-    "C:\\dev\\BotDiscord\\BotDiscord.csproj": {
+    "C:\\dev\\botDiscord\\botDiscord.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\dev\\BotDiscord\\BotDiscord.csproj",
-        "projectName": "BotDiscord",
-        "projectPath": "C:\\dev\\BotDiscord\\BotDiscord.csproj",
+        "projectUniqueName": "C:\\dev\\botDiscord\\botDiscord.csproj",
+        "projectName": "botDiscord",
+        "projectPath": "C:\\dev\\botDiscord\\botDiscord.csproj",
         "packagesPath": "C:\\Users\\wilso\\.nuget\\packages\\",
-        "outputPath": "C:\\dev\\BotDiscord\\obj\\",
+        "outputPath": "C:\\dev\\botDiscord\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -43,6 +43,24 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Discord.Net": {
+              "target": "Package",
+              "version": "[3.9.0, )"
+            },
+            "FluentResults": {
+              "target": "Package",
+              "version": "[3.15.2, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
