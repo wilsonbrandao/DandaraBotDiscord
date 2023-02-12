@@ -4,6 +4,8 @@ using Discord.WebSocket;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+using botDiscord.src.Handlers;
+
 public class DandaraBot
 {
     private readonly IServiceProvider _serviceProvider;
@@ -30,13 +32,14 @@ public class DandaraBot
         {
             LogLevel = LogSeverity.Info,
             CaseSensitiveCommands = true,
-        }));
+        }))
+        .AddSingleton<ClientHandler>();
 
         return collectionContainer.BuildServiceProvider();
     }
 
     public async Task InitBotAsync()
     {
-
+        await _serviceProvider.GetRequiredService<ClientHandler>().ConnectClientAsync();
     }
 }
