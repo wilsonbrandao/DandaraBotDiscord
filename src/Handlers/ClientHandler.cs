@@ -21,7 +21,7 @@ namespace botDiscord.src.Handlers
 
         public async Task ConnectClientAsync()
         {
-            string token = _configuration.GetSection("Discord")["TokenDiscord"];
+            string token = _configuration.GetSection("Discord")["TokenDandara"];
             await _client.LoginAsync(TokenType.Bot, token);
             await _client.StartAsync();
             await Task.Delay(-1);
