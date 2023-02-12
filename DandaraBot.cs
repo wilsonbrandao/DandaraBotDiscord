@@ -18,10 +18,10 @@ public class DandaraBot
     private static IServiceProvider ConfigureService()
     {
         IConfiguration configuration;
-
-        configuration = new ConfigurationBuilder().SetBasePath(Directory.GetParent(AppContext.BaseDirectory).FullName)
-                     .AddJsonFile("src/appsettings.Development.json")
-                     .Build();
+        configuration = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetParent(AppContext.BaseDirectory).FullName)
+            .AddJsonFile("src/appsettings.Development.json")
+            .Build();
 
         var collectionContainer = new ServiceCollection()
         .AddSingleton(new DiscordSocketClient(new DiscordSocketConfig()
@@ -41,5 +41,6 @@ public class DandaraBot
     public async Task InitBotAsync()
     {
         await _serviceProvider.GetRequiredService<ClientHandler>().ConnectClientAsync();
+        await _serviceProvider.GetRequiredService<CommandHandler>().initCommandAsync();
     }
 }
