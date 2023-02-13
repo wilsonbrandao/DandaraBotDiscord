@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using FluentResults;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
+using botDiscord.src.Data.DTOs;
 
 namespace botDiscord.src.Services
 {
@@ -14,23 +15,18 @@ namespace botDiscord.src.Services
     {
         private readonly IConfiguration _configuration;
         private readonly HttpClient _HttpClient;
+        private readonly RequestOpenAiDTO _requestContent;
 
-        public OpenApiService(IConfiguration configuration, HttpClient client)
+        public OpenApiService(IConfiguration configuration, HttpClient client, RequestOpenAiDTO requestContent)
         {
-            _HttpClient = client;
             _configuration = configuration;
+            _HttpClient = client;
+            _requestContent = requestContent;
         }
 
         public async Task<Result> Request(string prompText)
         {
-            var content = JsonConvert.SerializeObject(new
-            {
-                model = "text-davinci-003",
-                prompt = prompText,
-                max_tokens = 2048,
-                temperature = 0
-            });
-
+            var content = _requestContent.PostRequest(prompText);
             string token = _configuration.GetSection("OpenAi")["TokenOpenAI"];
 
             using (var httpRequestMessage = new HttpRequestMessage())
@@ -45,7 +41,9 @@ namespace botDiscord.src.Services
                 response.EnsureSuccessStatusCode();
                 var body = await response.Content.ReadAsStringAsync();
 
-                return Result.Ok().WithSuccess(body);
+                var deserializeResponse = JsonConvert.DeserializeObject<Temperatures>(body);
+
+                return Result.Ok().WithSuccess(deserializeResponse.Choices[0].Text);
             }
         }
     }

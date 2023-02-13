@@ -6,6 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 
 
 using botDiscord.src.Handlers;
+using botDiscord.src.Services;
+using botDiscord.src.Data.DTOs;
 
 public class DandaraBot
 {
@@ -37,7 +39,11 @@ public class DandaraBot
         }))
         .AddSingleton<ClientHandler>()
         .AddSingleton<CommandHandler>()
-        .AddSingleton<LoggingHandler>();
+        .AddSingleton<LoggingHandler>()
+
+        .AddScoped<HttpClient>()
+        .AddScoped<OpenApiService>()
+        .AddScoped<RequestOpenAiDTO>();
 
         return collectionContainer.BuildServiceProvider();
     }
