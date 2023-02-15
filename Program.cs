@@ -4,6 +4,13 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        new DandaraBot().InitBotAsync().GetAwaiter().GetResult();
+        try
+        {
+            new DandaraBot().InitBotAsync().GetAwaiter().GetResult();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
+        }
     }
 }
